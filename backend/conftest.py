@@ -64,8 +64,7 @@ def multiple_todos(app):
             Todo(title='Todo 3', description='Description 3', completed=False),
         ]
         
-        for todo in todos:
-            db.session.add(todo)
+        db.session.add_all(todos)
         db.session.commit()
         
         # Get IDs
