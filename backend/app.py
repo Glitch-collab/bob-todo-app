@@ -1,9 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from database import db, init_db
 from models import Todo
+import os
 
-app = Flask(__name__)
+# Get the parent directory (project root)
+basedir = os.path.abspath(os.path.dirname(__file__))
+frontend_dir = os.path.join(os.path.dirname(basedir), 'frontend')
+
+app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
 CORS(app)
 
 # Configuration
@@ -12,6 +17,18 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize database
 init_db(app)
+
+
+@app.route('/')
+def index():
+    """Serve the frontend index.html."""
+    return send_from_directory(frontend_dir, 'index.html')
+
+
+@app.route('/<path:path>')
+def serve_static(path):
+    """Serve static files (CSS, JS, etc.)."""
+    return send_from_directory(frontend_dir, path)
 
 
 @app.route('/api/todos', methods=['GET'])
