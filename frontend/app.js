@@ -25,7 +25,7 @@
  * This is where our Flask server is running. All API requests will be sent
  * to endpoints under this URL (e.g., http://localhost:5000/api/todos)
  */
-const API_BASE_URL = 'http://localhost:5001/api';
+const API_BASE_URL = 'http://localhost:5002/api';
 
 // ============================================================================
 // APPLICATION STATE

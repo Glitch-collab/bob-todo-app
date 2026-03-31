@@ -66,7 +66,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The backend server will start on `http://localhost:5000`
+The backend server will start on `http://localhost:5002`
 
 ### Frontend Setup
 
@@ -125,7 +125,7 @@ CREATE TABLE todos (
 
 ### CORS Errors
 If you see CORS errors in the browser console:
-- Make sure the Flask backend is running on port 5000
+- Make sure the Flask backend is running on port 5002
 - Verify Flask-CORS is installed: `pip install Flask-CORS`
 
 ### Database Errors
@@ -137,7 +137,7 @@ If you encounter database errors:
 If the frontend can't connect to the backend:
 - Ensure the Flask server is running (`python app.py`)
 - Check that the API_BASE_URL in `script.js` matches your backend URL
-- Verify no firewall is blocking port 5000
+- Verify no firewall is blocking port 5002
 
 ## Future Enhancements
 
